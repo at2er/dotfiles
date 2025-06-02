@@ -1,0 +1,11 @@
+#!/bin/bash
+
+[ -d "$HOME/Pictures/wallpaper" ] && ln -fns "$1" $HOME/Pictures/wallpaper/current.png
+[ -x "$HOME/.local/bin/setwall.d/hook.sh" ] && $HOME/.local/bin/setwall.d/hook.sh &
+swaybg -i $1 -m fill &
+cur=$!
+sleep 1s
+others=$(pgrep swaybg | grep -v $cur)
+if [ ! -z $others ]; then
+	kill $others
+fi

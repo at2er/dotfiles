@@ -1,0 +1,3 @@
+#!/bin/bash
+
+pactl get-default-sink | xargs pactl get-sink-volume | grep "Vol" | awk '{print $5}'

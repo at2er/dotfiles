@@ -1,0 +1,10 @@
+set folder = "~/.mail"
+set mbox_type = Maildir
+
+set mailcap_path = "~/.config/neomutt/mailcap"
+
+source "~/.config/neomutt/keybinds"
+# put 'source "~/.config/neomutt/accounts/<account>"'
+# to 'local' config
+source "~/.config/neomutt/local"
+source "~/.config/neomutt/sidebar"

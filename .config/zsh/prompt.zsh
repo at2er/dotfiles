@@ -1,0 +1,21 @@
+setopt PROMPT_SUBST
+
+GIT_PROMPT_SCRIPT="/usr/share/git/completion/git-prompt.sh"
+
+[ -f "$GIT_PROMPT_SCRIPT" ] && source $GIT_PROMPT_SCRIPT
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM=1
+GIT_PS1_STATESEPARATOR=" "
+GIT_PS1_DESCRIBE_STYLE=1
+GIT_PS1_SHOWCOLORHINTS=1
+
+# prompt
+PROMPT_EXIT_CODE='%B%F{red}%(?..%? )%f%b'
+PROMPT_DIR='%1~'
+PROMPT_SYMBOL='%(?.%B%F{green}>%f%b.%B%F{red}>%f%b)'
+PROMPT_ROOT='%(!.%B%F{red}[ROOT]%f%b.)'
+PROMPT_GIT='[%n@%m %c$(__git_ps1 " (%s)")]'
+PS1='${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR}$(__git_ps1 " (%s)") ${PROMPT_SYMBOL} '

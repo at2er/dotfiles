@@ -1,0 +1,12 @@
+"" vim:ft=vim
+
+set nobackup
+set noswapfile
+set noundofile
+set nowritebackup
+
+syntax on
+nnoremap <silent><space>q :q<cr>
+nnoremap <silent><space>w :w<cr>
+nnoremap <space>b :b#<cr>
+nnoremap <space>s :buffers<cr>:b 

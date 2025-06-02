@@ -1,0 +1,36 @@
+#window,
+#workspaces {
+	background: @surface;
+}
+
+#workspaces {
+	border-bottom-right-radius: 5px;
+}
+
+#workspaces button {
+	border: 0px;
+	border-radius: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: @text;
+}
+
+#workspaces button:hover {
+	background: @pink
+}
+
+#workspaces button.active {
+	color: @lavender;
+}
+
+#window {
+	border-left: 10px solid @surface;
+	border-right: 10px solid @surface;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+window#waybar.empty #window {
+	background: transparent;
+	border: none;
+}

@@ -1,0 +1,45 @@
+# vim:ft=neomuttrc
+
+bind attach,browser,index       g   noop
+bind attach,browser,index       gg  first-entry
+bind attach,browser,index       G   last-entry
+bind attach,browser,pager,index \CF next-page
+bind attach,browser,pager,index \CB previous-page
+bind attach,browser,pager,index \Cu half-up
+bind attach,browser,pager,index \Cd half-down
+bind browser,pager              \Ce next-line
+bind browser,pager              \Cy previous-line
+bind index                      \Ce next-line
+bind index                      \Cy previous-line
+bind pager,index                d   noop
+bind pager,index                dd  delete-message
+bind index                      \Cm list-reply # Doesn't work currently
+bind browser,pager,index        N   search-opposite
+bind pager,index                dT  delete-thread
+bind pager,index                dt  delete-subthread
+bind pager,index                gt  next-thread
+bind pager,index                gT  previous-thread
+bind index                      za  collapse-thread
+bind index                      zA  collapse-all # Missing :folddisable/foldenable
+bind pager gg  top
+bind pager G   bottom
+bind pager k   previous-line
+bind pager j   next-line
+
+bind index,pager \CK sidebar-prev
+bind index,pager \CJ sidebar-next
+bind index,pager \CL sidebar-open
+bind index,pager B sidebar-toggle-visible
+
+macro index \' "<save-message>=Archive<enter>" "archive a message"
+macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+
+macro index,pager =i "<change-folder>=Inbox<enter>"   "go to inbox"
+macro index,pager =j "<change-folder>=Junk<enter>"    "go to junk"
+macro index,pager =s "<change-folder>=Sent<enter>"    "go to sent"
+macro index,pager =d "<change-folder>=Drafts<enter>"  "go to drafts"
+macro index,pager =t "<change-folder>=Trash<enter>"   "go to trash"
+macro index,pager =a "<change-folder>=Archive<enter>" "go to archive"
+
+macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
+macro index,pager 'S' "<sync-mailbox><enter-command>unset wait_key<enter><shell-escape>/usr/bin/mbsync -a<enter><enter-command>set wait_key<enter>" "Sync mailbox"

@@ -1,0 +1,5 @@
+#info
+g first-node
+G last-node
+j next-line
+k prev-line

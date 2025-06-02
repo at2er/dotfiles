@@ -1,0 +1,6 @@
+#!/bin/bash
+
+menu="wmenu-color"
+[ -f "$menu" ] && menu="wmenu"
+
+echo -e "pause\nplay\nstop" | $menu | xargs mpc

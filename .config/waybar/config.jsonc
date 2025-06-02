@@ -1,0 +1,39 @@
+{
+	"height": 20,
+	"modules-left": [
+		"hyprland/workspaces"
+	],
+	"modules-center": [
+		"hyprland/window"
+	],
+	"modules-right": [
+		"mpd",
+		"pulseaudio",
+		"clock",
+		"tray"
+	],
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-scroll-up": "hyprctl dispatch workspace e+1",
+		"on-scroll-down": "hyprctl dispatch workspace e-1"
+	},
+	"hyprland/window": {
+		"max-length": 50,
+		"format": "{}"
+	},
+	"mpd": {
+		"max-length": 20,
+		"format": "󰝚 {title}",
+		"tooltip-format": "{album} - {artist} - {title}"
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-icons": {
+			"default": ["", ""]
+		}
+	},
+	"clock": {
+		"format": "{:%b %d %H:%M}",
+		"format-alt": "{:%A, %B %d, %Y (%R)}"
+	}
+}

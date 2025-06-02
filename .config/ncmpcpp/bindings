@@ -1,0 +1,44 @@
+def_key "m"
+  dummy
+
+def_key "n"
+  dummy
+
+def_key "M"
+  dummy
+
+def_key "k"
+  scroll_up
+
+def_key "j"
+  scroll_down
+
+# play list
+def_key "d"
+  delete_playlist_items
+
+def_key "p"
+  play_item
+
+def_key "P"
+  pause
+
+def_key "K"
+  move_selected_items_up
+
+def_key "J"
+  move_selected_items_down
+
+def_key "h"
+  previous_column
+def_key "h"
+  master_screen
+def_key "h"
+  volume_down
+
+def_key "l"
+  next_column
+def_key "h"
+  slave_screen
+def_key "l"
+  volume_up

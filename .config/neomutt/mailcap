@@ -1,0 +1,3 @@
+#text/html; lynx -dump %s; copiousoutput; nametemplate=%s.html
+text/html; /usr/bin/w3m -cols 90 -dump -T text/html '%s'; copiousoutput
+image/png; /usr/bin/imv '%s';

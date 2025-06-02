@@ -1,0 +1,20 @@
+@import "background.css";
+@import "catppuccin/themes/mocha.css";
+@import "hyprland.css";
+@import "tray.css";
+@import "misc.css";
+
+* {
+	/*all: unset;*/
+	font-family: "Source Code Pro";
+	font-size: 12px;
+	border: none;
+	min-height: 20px;
+	margin: 0px;
+	padding: 0px;
+}
+
+window#waybar {
+	color: @text;
+	background-color: @background;
+}
