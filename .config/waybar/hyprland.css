@@ -1,0 +1,31 @@
+#window,
+#workspaces {
+	background: @base;
+}
+
+#workspaces {
+	border-bottom-right-radius: 5px;
+}
+
+#workspaces button {
+	padding-left: 10px;
+	padding-right: 10px;
+	color: @text;
+}
+
+#workspaces button.active {
+	border-bottom: 2px solid @pink;
+	color: @pink;
+}
+
+#window {
+	border-left: 10px solid @base;
+	border-right: 10px solid @base;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+window#waybar.empty #window {
+	background: transparent;
+	border: none;
+}

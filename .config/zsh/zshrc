@@ -1,0 +1,66 @@
+# source this file in .zshrc to apply config
+#
+# AUTHOR: at2er (xb0515@outlook.com)
+# LICENSE: MIT LICENSE
+
+# prompt
+PROMPT_EXIT_CODE='%B%F{red}%(?..%? )%f%b'
+PROMPT_DIR='%1~'
+#PROMPT_SYMBOL='%(!.%B%F{red}#%f%b.%B%F{green}>%f%b)'
+PROMPT_SYMBOL='%(?.%B%F{green}>%f%b.%B%F{red}>%f%b)'
+PROMPT_ROOT='%(!.%B%F{red}[ROOT]%f%b.)'
+PROMPT="${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR} ${PROMPT_SYMBOL} "
+
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=$HISTSIZE
+setopt append_history
+setopt extended_history
+setopt histignorespace
+setopt share_history
+setopt hist_ignore_dups
+
+# alias
+source ~/.config/zsh/alias.zsh
+#alias dotfiles="git --git-dir=\"$HOME/.dotfiles/\" --work-tree=\"$HOME\""
+
+source ~/.config/zsh/private_conf.zsh
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+autoload -U compinit && compinit
+
+# plugin
+source /usr/local/share/zsh/plugins/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# completion style
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
+zstyle ':completion:*' rehash true
+
+eval "$(fzf --zsh)"
+eval "$(tmuxifier init -)"
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey -v
+bindkey "^[[H" beginning-of-line
+bindkey "^[[4~" end-of-line
+bindkey "^[[P" delete-char
+bindkey "^P" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
+bindkey "^B" backward-char
+bindkey "^F" forward-char
