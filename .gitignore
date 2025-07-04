@@ -4,6 +4,7 @@
 !.config
 !.config/bottom
 !.config/bottom/*
+!.config/dircolors
 !.config/dunst
 !.config/dunst/*
 !.config/dwm
