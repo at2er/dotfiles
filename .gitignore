@@ -15,6 +15,7 @@
 !.config/hypr
 !.config/hypr/**
 !.config/lf
+!.config/lf/**
 !.config/mpd
 !.config/mpd/mpd.conf
 !.config/mpv

@@ -1,0 +1,7 @@
+set sixel true
+set preview true
+set previewer ~/.local/bin/scope
+
+source ~/.config/lf/cmds.conf
+source ~/.config/lf/keybind.conf
+source ~/.config/lf/local.conf
