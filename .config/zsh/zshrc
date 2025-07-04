@@ -12,7 +12,7 @@ PROMPT_ROOT='%(!.%B%F{red}[ROOT]%f%b.)'
 PROMPT="${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR} ${PROMPT_SYMBOL} "
 
 # history
-HISTFILE=~/.zsh_history
+HISTFILE="$XDG_STATE_HOME/zsh_history"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 setopt append_history
@@ -23,18 +23,7 @@ setopt hist_ignore_dups
 
 # alias
 source ~/.config/zsh/alias.zsh
-#alias dotfiles="git --git-dir=\"$HOME/.dotfiles/\" --work-tree=\"$HOME\""
-
 source ~/.config/zsh/private_conf.zsh
-
-function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
-}
 
 autoload -U compinit && compinit
 
@@ -49,13 +38,18 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' rehash true
 
+source <(dircolors ~/.config/dircolors)
+
 eval "$(fzf --zsh)"
 eval "$(tmuxifier init -)"
 
+autoload -Uz edit-command-line
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
+zle -N edit-command-line
 
+KEYTIMEOUT=1
 bindkey -v
 bindkey "^[[H" beginning-of-line
 bindkey "^[[4~" end-of-line
@@ -64,3 +58,4 @@ bindkey "^P" up-line-or-beginning-search
 bindkey "^N" down-line-or-beginning-search
 bindkey "^B" backward-char
 bindkey "^F" forward-char
+bindkey "^X^E" edit-command-line
