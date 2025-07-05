@@ -64,3 +64,4 @@
 !.local/bin
 !.local/bin/.gitignore
 !.profile
+!.stow-local-ignore
