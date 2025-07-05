@@ -6,6 +6,8 @@ interval="10m"
 options="-m fill"
 
 killall swaybg
+others=$(pgrep wallpaperd.sh | grep -v $$)
+kill $others
 
 swaybg -i "$(find "$bg_dir" -type f | shuf -n 1)" ${options}&
 old_pid=$!
