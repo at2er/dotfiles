@@ -22,12 +22,18 @@
 		"format": "{}"
 	},
 	"mpd": {
-		"format": "󰝚 {artist} : {title}"
+		"max-length": 20,
+		"format": "󰝚 {title}",
+		"tooltip-format": "{album} - {artist} - {title}"
 	},
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
 		"format-icons": {
 			"default": ["", ""]
 		}
+	},
+	"clock": {
+		"format": "{:%b %d %H:%M}",
+		"format-alt": "{:%A, %B %d, %Y (%R)}"
 	}
 }

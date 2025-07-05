@@ -44,7 +44,13 @@
 !.config/vim
 !.config/vim/*
 !.config/waybar
-!.config/waybar/**
+!.config/waybar/background.css
+!.config/waybar/config.jsonc
+!.config/waybar/hyprland.css
+!.config/waybar/misc.css
+!.config/waybar/README.md
+!.config/waybar/style.css
+!.config/waybar/tray.css
 !.config/yazi
 !.config/yazi/*
 !.config/zathura
@@ -54,4 +60,7 @@
 !.config/picom.conf
 !.gitignore
 !.inputrc
+!.local
+!.local/bin
+!.local/bin/.gitignore
 !.profile

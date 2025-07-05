@@ -1,15 +1,15 @@
 #tray {
 	margin-left: 5px;
-	background: @base;
+	background: @bg-sel;
 	padding: 0 10px 0px 10px;
 	border-bottom-left-radius: 5px;
 }
 
 #tray menu {
 	margin: 5px;
-	background-color: @base;
+	background-color: @bg-sel;
 	color: @text;
-	border: 1px solid @base;
+	border: 1px solid @bg-sel;
 	border-radius: 5px;
 	padding: 4px;
 }

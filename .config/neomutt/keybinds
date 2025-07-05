@@ -40,3 +40,5 @@ macro index,pager gs "<change-folder>=Sent<enter>"    "go to sent"
 macro index,pager gd "<change-folder>=Drafts<enter>"  "go to drafts"
 macro index,pager gt "<change-folder>=Trash<enter>"   "go to trash"
 macro index,pager ga "<change-folder>=Archive<enter>" "go to archive"
+
+macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"

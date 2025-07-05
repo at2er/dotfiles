@@ -1,0 +1,66 @@
+#!/bin/bash
+
+bm_dir="$HOME/.bmks"
+default_bm="$bm_dir/bmks"
+
+if [ ! -d "$bm_dir" ]; then
+	mkdir "$bm_dir"
+fi
+
+if [ ! -f "$default_bm" ]; then
+	touch "$default_bm"
+fi
+
+bm_add() {
+	local name url
+	name="$(echo "" | dmenu -p "name:")"
+	if [[ "$name" == "" ]]; then
+		exit 1
+	fi
+	url="$(echo "" | dmenu -p "url:")"
+	if [[ "$url" == "" ]]; then
+		exit 1
+	fi
+	echo "${name}|${url}" >> "$default_bm"
+}
+
+bm_del() {
+	local line
+	line=$(cat "$default_bm"\
+		| grep -vE "^#|^[[:space:]]*$"\
+		| awk ' {print NR, $0}'\
+		| dmenu -sb "#aa0024" -nb "#000000" -p "del:" -l 5\
+		| sed 's/[^0-9]//g')
+	if [[ "$line" == "" ]]; then
+		exit 1
+	fi
+	sed -i "${line}d" "$default_bm"
+}
+
+bm_ed() {
+	st nvim "${default_bm}"
+}
+
+bm_ls() {
+	cat "$default_bm"\
+		| grep -vE "^#|^[[:space:]]*$"\
+		| awk ' {print NR, $0}'\
+		| dmenu -l 5\
+		| awk ' {sub(/[^|]*\|/, ""); print}'
+}
+
+bm_open() {
+	local url=""
+	url="$(bm_ls)"
+	if [[ "$url" != "" ]]; then
+		echo "$url" | xargs firefox
+	fi
+}
+
+case "$1" in
+	"add") bm_add ;;
+	"ls") bm_ls ;;
+	"ed") bm_ed ;;
+	"del") bm_del ;;
+	"open" | *) bm_open ;;
+esac
