@@ -16,7 +16,6 @@
 }
 
 #workspaces button.active {
-	border-bottom: 2px solid @pink;
 	color: @pink;
 }
 

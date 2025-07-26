@@ -34,11 +34,12 @@ bind index,pager B sidebar-toggle-visible
 macro index \' "<save-message>=Archive<enter>" "archive a message"
 macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
 
-macro index,pager gi "<change-folder>=Inbox<enter>"   "go to inbox"
-macro index,pager gj "<change-folder>=Junk<enter>"    "go to junk"
-macro index,pager gs "<change-folder>=Sent<enter>"    "go to sent"
-macro index,pager gd "<change-folder>=Drafts<enter>"  "go to drafts"
-macro index,pager gt "<change-folder>=Trash<enter>"   "go to trash"
-macro index,pager ga "<change-folder>=Archive<enter>" "go to archive"
+macro index,pager =i "<change-folder>=Inbox<enter>"   "go to inbox"
+macro index,pager =j "<change-folder>=Junk<enter>"    "go to junk"
+macro index,pager =s "<change-folder>=Sent<enter>"    "go to sent"
+macro index,pager =d "<change-folder>=Drafts<enter>"  "go to drafts"
+macro index,pager =t "<change-folder>=Trash<enter>"   "go to trash"
+macro index,pager =a "<change-folder>=Archive<enter>" "go to archive"
 
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > ~/.cache/mutt/mail.html<enter><shell-escape>$BROWSER ~/.cache/mutt/mail.html<enter>"
+macro index,pager 'S' "<sync-mailbox><enter-command>unset wait_key<enter><shell-escape>/usr/bin/mbsync -a<enter><enter-command>set wait_key<enter>" "Sync mailbox"
