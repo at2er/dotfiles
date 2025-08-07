@@ -22,8 +22,11 @@ export EDITOR="nvim"
 #export MANPAGER="less"
 export TERMINAL="foot"
 
-[ -d "$CARGO_HOME/bin" ] && export PATH=$PATH:$CARGO_HOME/bin
-[ -d "$HOME/.local/bin" ] && export PATH=$PATH:$HOME/.local/bin
+# use xdg-desktop-portal for filechooser and others.
+export GDK_DEBUG=portals
+
+[ -d "$CARGO_HOME/bin" ] && export PATH=$CARGO_HOME/bin:$PATH
+[ -d "$HOME/.local/bin" ] && export PATH=$HOME/.local/bin:$PATH
 [ -d "$HOME/.config/tmux/plugins/tmuxifier/bin" ] && \
 	export PATH=$PATH:$HOME/.config/tmux/plugins/tmuxifier/bin
 
