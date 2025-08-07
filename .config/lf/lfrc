@@ -4,5 +4,6 @@ set previewer ~/.local/bin/scope
 set ratios 1:2:3
 
 source ~/.config/lf/cmds.conf
+source ~/.config/lf/hook.conf
 source ~/.config/lf/keybind.conf
 source ~/.config/lf/local.conf
