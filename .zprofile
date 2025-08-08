@@ -13,10 +13,6 @@ export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
 export XINITRC="$XDG_CONFIG_HOME/xorg/xinitrc"
 export XAUTHORITY="$XDG_CONFIG_HOME/xorg/Xauthority"
 
-export QT_QPA_PLATFORMTHEME=qt5ct
-#export QT_STYLE_OVERRIDE=Breeze
-export GTK_THEME=Adwaita-dark
-
 export BROWSER="firefox"
 export EDITOR="nvim"
 #export MANPAGER="less"

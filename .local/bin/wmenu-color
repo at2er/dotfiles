@@ -1,20 +1,19 @@
 #!/bin/sh
 
-col_bg=$WMENU_BG
-col_fg=$WMENU_FG
-col_prompt_bg=$WMENU_PROMPT_BG
-col_prompt_fg=$WMENU_PROMPT_FG
-col_sel_bg=$WMENU_SEL_BG
-col_sel_fg=$WMENU_SEL_FG
+col_bg=${WMENU_BG:-"000000"}
+col_fg=${WMENU_FG:-"cdd6f4"}
+col_prompt_bg=${WMENU_PROMPT_BG:-"b4befe"}
+col_prompt_fg=${WMENU_PROMPT_FG:-"000000"}
+col_sel_bg=${WMENU_SEL_BG:-"b4befe"}
+col_sel_fg=${WMENU_SEL_FG:-"000000"}
 
-[ -z $col_bg ]        && col_bg="222222"
-[ -z $col_fg ]        && col_fg="bbbbbb"
-[ -z $col_prompt_bg ] && col_prompt_bg="005577"
-[ -z $col_prompt_fg ] && col_prompt_fg="eeeeee"
-[ -z $col_sel_bg ]    && col_sel_bg="005577"
-[ -z $col_sel_fg ]    && col_sel_fg="eeeeee"
+cmd="wmenu"
+if [ -n "$1" ] && [ "$1" = "wmenu-run" ]; then
+	cmd="$1"
+	shift
+fi
 
-wmenu\
+$cmd \
 	-N $col_bg        -n $col_fg        \
 	-M $col_prompt_bg -m $col_prompt_fg \
 	-S $col_sel_bg    -s $col_sel_fg    \
