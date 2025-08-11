@@ -18,6 +18,11 @@ export EDITOR="nvim"
 #export MANPAGER="less"
 export TERMINAL="foot"
 
+# styles
+# For GTK 4:
+#   $ gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+export GTK_THEME=Adwaita:dark
+
 # use xdg-desktop-portal for filechooser and others.
 export GDK_DEBUG=portals
 

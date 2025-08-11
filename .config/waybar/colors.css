@@ -1,0 +1,8 @@
+@import "catppuccin/themes/mocha.css";
+
+@define-color background transparent;
+@define-color surface #000000;
+@define-color text #cdd6f4;
+
+@define-color sel-text @surface;
+@define-color sel-surface #b4befe;

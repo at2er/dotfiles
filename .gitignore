@@ -58,7 +58,7 @@
 !.config/vim
 !.config/vim/vimrc
 !.config/waybar
-!.config/waybar/background.css
+!.config/waybar/colors.css
 !.config/waybar/config.jsonc
 !.config/waybar/hyprland.css
 !.config/waybar/misc.css

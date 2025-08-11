@@ -9,18 +9,18 @@
 
 #workspaces button {
 	border: 0px;
-	border-radius: 0px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding: 0px 10px;
 	color: @text;
 }
 
 #workspaces button:hover {
-	background: @pink
+	border: 0px;
+	background: @sel-surface;
 }
 
 #workspaces button.active {
-	color: @lavender;
+	color: @sel-surface;
+	background: @surface;
 }
 
 #window {
