@@ -1,12 +1,75 @@
 "" vim:ft=vim
 
+filetype plugin indent on
+syntax on
+
 set nobackup
+set nocompatible
 set noswapfile
 set noundofile
 set nowritebackup
 
-syntax on
+set autoindent
+set background=dark
+set completeopt=menuone,popup
+set conceallevel=0
+set incsearch
+set laststatus=0
+set rulerformat=%m\ %l,%c%V
+set smartindent
+set shiftwidth=8
+set tabstop=8
+set termguicolors
+set wildoptions=pum
+set encoding=utf-8
+
+" colors
+colorscheme nothing
+
+let mapleader = " "
+let mapleaderlocal = " "
+
+inoremap jk <esc>
+inoremap <c-b> <left>
+inoremap <c-f> <right>
+inoremap <c-n> <down>
+inoremap <c-p> <up>
+
+vnoremap <silent><space>s :sort<cr>
+
+nnoremap <space>b :b#<cr>
+nnoremap <space>e :Ex<cr>
+nnoremap <space>s :ls<cr>:b 
+nnoremap <space>gs :ls!<cr>:b 
 nnoremap <silent><space>q :q<cr>
 nnoremap <silent><space>w :w<cr>
-nnoremap <space>b :b#<cr>
-nnoremap <space>s :buffers<cr>:b 
+
+" Use system clipboard
+map Y "+y
+
+" tab manage
+nnoremap <silent><space>to :tabnew %<cr>
+
+" quickfix
+nnoremap <silent><space>co :copen<cr>
+nnoremap <silent><space>cr :call qfdiag#place()<cr>
+nnoremap <silent><space>ct :call qfdiag#toggle()<cr>
+nnoremap <silent><space>cn :cnext<cr>
+nnoremap <silent><space>cp :cprev<cr>
+
+sign define qfdiag-sign text=>> texthl=Error
+
+augroup qfdiag
+	au!
+	au QuickfixCmdPost * call qfdiag#place()
+augroup END
+
+" netrw
+let g:netrw_banner = 0
+
+" plugins
+packadd! comment
+packadd! nohlsearch
+call plug#begin()
+Plug 'jasonccox/vim-wayland-clipboard'
+call plug#end()

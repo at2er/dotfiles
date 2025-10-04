@@ -1,8 +1,6 @@
 #tray {
+	margin-right: 10px;
 	margin-left: 5px;
-	background: @surface;
-	padding: 0 10px 0px 10px;
-	border-bottom-left-radius: 5px;
 }
 
 #tray menu {

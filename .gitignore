@@ -56,7 +56,7 @@
 !.config/tmux/statusline.conf
 !.config/tmux/tmux.conf
 !.config/vim
-!.config/vim/vimrc
+!.config/vim/**
 !.config/waybar
 !.config/waybar/colors.css
 !.config/waybar/config.jsonc
