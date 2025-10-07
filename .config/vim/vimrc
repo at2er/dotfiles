@@ -13,6 +13,8 @@ set autoindent
 set background=dark
 set completeopt=menuone,popup
 set conceallevel=0
+set hidden
+set hlsearch
 set incsearch
 set laststatus=0
 set rulerformat=%m\ %l,%c%V
@@ -37,15 +39,14 @@ inoremap <c-p> <up>
 
 vnoremap <silent><space>s :sort<cr>
 
+nnoremap <space>r :registers<cr>
 nnoremap <space>b :b#<cr>
 nnoremap <space>e :Ex<cr>
 nnoremap <space>s :ls<cr>:b 
 nnoremap <space>gs :ls!<cr>:b 
 nnoremap <silent><space>q :q<cr>
 nnoremap <silent><space>w :w<cr>
-
-" Use system clipboard
-map Y "+y
+nnoremap <space>fg :QGrep //<left>
 
 " tab manage
 nnoremap <silent><space>to :tabnew %<cr>
@@ -71,5 +72,16 @@ let g:netrw_banner = 0
 packadd! comment
 packadd! nohlsearch
 call plug#begin()
-Plug 'jasonccox/vim-wayland-clipboard'
+
+" clipboard
+if !has('clipboard')
+	Plug 'jasonccox/vim-wayland-clipboard'
+	nnoremap y "wy
+	vnoremap y "wy
+	" nnoremap p "+p
+	" vnoremap p "+p
+else
+	set clipboard=unnamedplus
+endif
+
 call plug#end()

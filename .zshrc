@@ -4,7 +4,6 @@ function trysource() {
 
 SHELL_CONFIG="$HOME/.config/shell"
 trysource $SHELL_CONFIG/alias.sh
-trysource $SHELL_CONFIG/catppuccin-fzf/themes/catppuccin-fzf-mocha.sh
 
 ZSH_CONFIG="$HOME/.config/zsh"
 trysource $ZSH_CONFIG/private_conf.zsh

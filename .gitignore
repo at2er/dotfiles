@@ -45,6 +45,10 @@
 !.config/qutebrowser/README.md
 !.config/qutebrowser/config.py
 !.config/qutebrowser/keymaps.py
+!.config/river
+!.config/river/bindings
+!.config/river/init
+!.config/river/settings
 !.config/shell
 !.config/shell/alias.sh
 !.config/shell/fzf.sh

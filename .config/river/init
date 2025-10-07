@@ -1,0 +1,18 @@
+#!/bin/sh
+
+wl_paste_text="wl-paste --type text --watch cliphist store"
+wl_paste_image="wl-paste --type image --watch cliphist store"
+
+killall -q fcitx5 wallpaperd.sh
+
+riverctl spawn "fcitx5 -d"
+riverctl spawn "wallpaperd.sh"
+
+pgrep "sfcp" || riverctl spawn "sfcp"
+pgrep -f "wl_paste_text" || riverctl spawn "$wl_paste_text"
+pgrep -f "wl_paste_image" || riverctl spawn "$wl_paste_image"
+
+riverctl map normal Super Return spawn foot
+
+source $HOME/.config/river/bindings
+source $HOME/.config/river/settings

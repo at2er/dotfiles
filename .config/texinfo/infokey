@@ -1,5 +1,7 @@
 #info
 g first-node
 G last-node
+\mb beginning-of-node
+\me end-of-node
 j next-line
 k prev-line
