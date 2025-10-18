@@ -9,8 +9,9 @@ riverctl spawn "fcitx5 -d"
 riverctl spawn "wallpaperd.sh"
 
 pgrep "sfcp" || riverctl spawn "sfcp"
-pgrep -f "wl_paste_text" || riverctl spawn "$wl_paste_text"
-pgrep -f "wl_paste_image" || riverctl spawn "$wl_paste_image"
+pgrep -f "$wl_paste_text" || riverctl spawn "$wl_paste_text"
+pgrep -f "$wl_paste_image" || riverctl spawn "$wl_paste_image"
+pgrep "mako" || riverctl spawn "mako"
 
 riverctl map normal Super Return spawn foot
 

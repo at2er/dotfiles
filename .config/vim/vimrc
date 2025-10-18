@@ -40,8 +40,8 @@ inoremap <c-p> <up>
 vnoremap <silent><space>s :sort<cr>
 
 nnoremap <space>r :registers<cr>
-nnoremap <space>b :b#<cr>
-nnoremap <space>e :Ex<cr>
+nnoremap <silent><space>b :b#<cr>
+nnoremap <silent><space>e :Ex<cr>
 nnoremap <space>s :ls<cr>:b 
 nnoremap <space>gs :ls!<cr>:b 
 nnoremap <silent><space>q :q<cr>
@@ -55,6 +55,8 @@ nnoremap <silent><space>to :tabnew %<cr>
 nnoremap <silent><space>co :copen<cr>
 nnoremap <silent><space>cr :call qfdiag#place()<cr>
 nnoremap <silent><space>ct :call qfdiag#toggle()<cr>
+nnoremap <silent><space>cm :make<cr>
+nnoremap <space>cM :make 
 nnoremap <silent><space>cn :cnext<cr>
 nnoremap <silent><space>cp :cprev<cr>
 

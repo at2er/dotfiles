@@ -32,6 +32,8 @@
 !.config/mpd/mpd.conf
 !.config/mpv
 !.config/mpv/input.conf
+!.config/nvim
+!.config/nvim/**
 !.config/ncmpcpp
 !.config/ncmpcpp/bindings
 !.config/ncmpcpp/config
