@@ -14,7 +14,7 @@ export XINITRC="$XDG_CONFIG_HOME/xorg/xinitrc"
 export XAUTHORITY="$XDG_CONFIG_HOME/xorg/Xauthority"
 
 export BROWSER="firefox"
-export EDITOR="vim"
+export EDITOR="nvim"
 #export MANPAGER="less"
 export TERMINAL="foot"
 

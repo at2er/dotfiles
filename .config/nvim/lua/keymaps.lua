@@ -25,5 +25,7 @@ vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', opt)
 vim.keymap.set('n', '<leader>to', '<cmd>tabnew<cr>', opt)
 
 vim.keymap.set('n', '<leader>co', '<cmd>copen<cr>', opt)
+vim.keymap.set('n', '<leader>cm', '<cmd>make<cr>',  opt)
+vim.keymap.set('n', '<leader>cM', '<cmd>make', nosilent)
 vim.keymap.set('n', '<leader>cn', '<cmd>cnext<cr>', opt)
 vim.keymap.set('n', '<leader>cp', '<cmd>cprev<cr>', opt)

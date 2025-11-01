@@ -9,4 +9,4 @@ riverctl focus-follows-cursor normal
 riverctl rule-add -app-id 'float*' float
 riverctl rule-add -app-id 'QQ' float
 riverctl default-layout rivertile
-rivertile -view-padding 0 -outer-padding 0 &
+rivertile -view-padding 0 -outer-padding 0 -main-location left &
