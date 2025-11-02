@@ -17,7 +17,7 @@
 !.config/fontconfig
 !.config/fontconfig/fonts.conf
 !.config/foot
-!.config/foot/foot/ini
+!.config/foot/foot.ini
 !.config/hypr
 !.config/hypr/bindings.conf
 !.config/hypr/hyprland.conf
