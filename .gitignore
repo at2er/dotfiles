@@ -1,7 +1,5 @@
 *
 
-!LICENSE*
-
 !.bashrc
 !.config
 !.config/bottom
@@ -111,3 +109,8 @@
 !.stow-local-ignore
 !.zprofile
 !.zshrc
+!configure
+!scripts
+!scripts/**
+!setup
+!LICENSE*

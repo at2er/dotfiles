@@ -1,0 +1,12 @@
+#!/bin/sh
+
+install_deps() {
+	if check_command lsb_release; then
+		echo "lsb_release not found"
+		exit 1
+	fi
+	case "$(lsb_release -d -s)" in
+		"\"Arch Linux\"") $(pwd)/scripts/setup-archlinux ;;
+		*) echo "please manual install"; exit 1 ;;
+	esac
+}

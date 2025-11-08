@@ -1,0 +1,69 @@
+#!/bin/sh
+
+DEP_PROGRAMS=(
+	fzf
+	git
+	gpg
+	lf
+	mako
+	mbsync
+	mpc
+	mpd
+	mpv
+	ncmpcpp
+	neomutt
+	newsboat
+	nvim
+	river
+	pass
+	stow
+	swayidle
+	swayimg
+	swaylock
+	tmux
+	zsh
+)
+
+failed_commands=()
+
+check_command() {
+	if command -v "$1" &> /dev/null; then
+		return 1
+	else
+		return 0
+	fi
+}
+
+check_deps() {
+	local ret msg
+	for i in ${DEP_PROGRAMS[@]}; do
+		if ! check_command "$i"; then
+			msg="\x1b[32mchecked\x1b[0m"
+		else
+			if [ "$failed_commands" == "" ]; then
+				failed_commands+="$i"
+			else
+				failed_commands+=" $i"
+			fi
+			msg="\x1b[31mcheck failed\x1b[0m"
+		fi
+		echo -e "  $i $msg"
+	done
+}
+
+configure_mail() {
+	mkisyncrc-account >> $HOME/.config/isyncrc
+}
+
+configure_mpd() {
+	systemctl --user enable --now mpd.service
+}
+
+check_deps
+
+if [ ${#failed_commands[@]} -ne 0 ]; then
+	echo "these command check failed:"
+	echo "${failed_commands}"
+fi
+
+stow -t ~ . --adopt

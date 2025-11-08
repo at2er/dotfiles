@@ -1,0 +1,33 @@
+#!/bin/sh
+
+PACKAGES=(
+	fzf
+	git
+	grim
+	gnupg
+	lf
+	mako
+	isync
+	mpc
+	mpd
+	mpv
+	ncmpcpp
+	neomutt
+	newsboat
+	neovim
+	pass
+	pipewire
+	pipewire-alsa
+	pipewire-pulse
+	river
+	slurp
+	stow
+	swayidle
+	swayimg
+	swaylock
+	tmux
+	zsh
+	wireplumber
+)
+
+sudo pacman --noconfirm -S ${PACKAGES[@]}
