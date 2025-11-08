@@ -1,3 +1,61 @@
 #!/bin/bash
+# @depend: grim slurp wl-copy
 
-grim -g "$(slurp -d </dev/null)" - | wl-copy
+mode="select"
+output=""
+target="clipboard"
+
+capture() {
+	local arg
+	case "$mode" in
+		all) arg="-" ;;
+		select) arg="-g \"$(slurp -d </dev/null)\"" ;;
+	esac
+	case "$target" in
+		clipboard) capture_to_clipboard "$arg" ;;
+		file) capture_to_file "$arg" ;;
+	esac
+}
+
+capture_to_clipboard() {
+	eval "grim $1 -" | wl-copy
+}
+
+capture_to_file() {
+	if [ -n "$output" ]; then
+		eval "grim $1 \"$output\""
+	else
+		eval "grim $1"
+	fi
+}
+
+usage() {
+	cat << EOF
+usage:   screenshot [<options>]
+
+options: -a: capture screen
+         -c: use clipboard
+				 -f: output file (by grim's default)
+         -h: usage
+         -o: output file (without -c)
+         -s: select area
+EOF
+}
+
+until [ $# -eq 0 ]; do
+	case "$1" in
+		-a) mode="all" ;;
+		-c) target="clipboard" ;;
+		-f) target="file" ;;
+		-h) usage ;;
+		-o) output="$2" && shift ;;
+		-s) mode="select" ;;
+		*)
+			echo "invaild argument"
+			exit 1
+			;;
+	esac
+	shift
+done
+
+capture

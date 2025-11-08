@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 get_volume() {
 	echo "$(pactl get-default-sink \
@@ -17,20 +17,17 @@ get_mpc() {
 
 usage() {
 	cat << EOF
-usage: volume [-hudlgm]
-  -u: up
-  -d: down
-  -l: show media status by 'notify-send'
+usage: volume [-hlgm]
+  -h: usage
   -g: get volume
   -m: get media status (volume & mpc)
+  -n: show media status by 'notify-send'
 EOF
 }
 
 case "$1" in
 	"-h") usage ;;
-	"-u") amixer sset Master 5%+ ;;
-	"-d") amixer sset Master 5%- ;;
-	"-l") notify-send "$(get_volume)" "$(get_mpc)" -t 1000 ;;
 	"-g") get_volume ;;
 	"-m") get_media ;;
+	"-n") notify-send "$(get_volume)" "$(get_mpc)" -t 1000 ;;
 esac

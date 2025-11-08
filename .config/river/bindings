@@ -10,10 +10,10 @@ riverctl map normal $mod D spawn "wmenu-color wmenu-run"
 riverctl map normal $mod Semicolon spawn "cliphist list | wmenu-color -l 10 | cliphist decode | wl-copy"
 
 # screenshot
-riverctl map normal $mod C spawn 'grim -g "$(slurp -d)" - | wl-copy'
-riverctl map normal $mod Print spawn 'grim - | wl-copy'
-riverctl map normal ${mod}+Shift C spawn 'grim -g "$(slurp -d)"'
-riverctl map normal ${mod}+Shift Print spawn grim
+riverctl map normal $mod C spawn 'screenshot -s -c'
+riverctl map normal $mod Print spawn 'screenshot -a -c'
+riverctl map normal ${mod}+Shift C spawn 'screenshot -s -f'
+riverctl map normal ${mod}+Shift Print spawn 'screenshot -a -f'
 
 riverctl map normal $mod J focus-view next
 riverctl map normal $mod K focus-view previous
@@ -68,12 +68,12 @@ riverctl map normal $mod Left  send-layout-cmd rivertile "main-location left"
 
 # media contrl
 riverctl map normal ${mod}+Shift M spawn mpdaction
-riverctl map normal ${mod} G spawn 'volume -l'
+riverctl map normal ${mod} G spawn 'getvol -n'
 for mode in normal locked
 do
-    riverctl map $mode ${mod}+Alt Up   spawn 'volume -u'
-    riverctl map $mode ${mod}+Alt Down spawn 'volume -d'
+    riverctl map $mode ${mod}+Alt Up   spawn 'setvol -u'
+    riverctl map $mode ${mod}+Alt Down spawn 'setvol -d'
 
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'volume -u'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'volume -d'
+    riverctl map $mode None XF86AudioRaiseVolume  spawn 'setvol -u'
+    riverctl map $mode None XF86AudioLowerVolume  spawn 'setvol -d'
 done

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+DEFAULT_SHIFT=5
+
+usage() {
+	cat << EOF
+usage: volume [-hudlgm]
+  -h: usage
+  -u: up
+  -d: down
+EOF
+}
+
+case "$1" in
+	"-h") usage ;;
+	"-u") amixer sset Master ${DEFAULT_SHIFT}%+ ;;
+	"-d") amixer sset Master ${DEFAULT_SHIFT}%- ;;
+esac

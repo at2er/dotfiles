@@ -1,0 +1,15 @@
+#!/bin/sh
+
+k_result=$(uname -r)
+p_result=$(pacman -Q | wc -l)
+m_result=$(free -h | awk 'NR==2 {print $3 "/" $2}')
+s_result=$(free -h | awk 'NR==3 {print $3 "/" $2}')
+
+color() {
+	echo -e "\x1b[$1m$2\x1b[0m"
+}
+
+echo "$(color 32 ker): $k_result"
+echo "$(color 35 pkg): $p_result"
+echo "$(color 34 mem): $m_result"
+echo "$(color 34 swp): $s_result"
