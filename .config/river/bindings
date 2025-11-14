@@ -75,6 +75,9 @@ do
     riverctl map $mode ${mod}+Alt Up   spawn 'setvol -u'
     riverctl map $mode ${mod}+Alt Down spawn 'setvol -d'
 
+    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set 5%+'
+    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+
     riverctl map $mode None XF86AudioRaiseVolume  spawn 'setvol -u'
     riverctl map $mode None XF86AudioLowerVolume  spawn 'setvol -d'
 done
