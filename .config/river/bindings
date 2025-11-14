@@ -6,8 +6,9 @@ riverctl map normal ${mod}+Shift Q exit
 
 riverctl map normal $mod Return spawn foot
 riverctl map normal $mod Q close
-riverctl map normal $mod D spawn "wmenu-color wmenu-run"
-riverctl map normal $mod Semicolon spawn "cliphist list | wmenu-color -l 10 | cliphist decode | wl-copy"
+riverctl map normal $mod D spawn 'wmenu-color wmenu-run'
+riverctl map normal $mod Semicolon spawn 'menu-clip'
+riverctl map normal $mod W spawn 'swayimg -a float -g $HOME/Pictures/wallpaper'
 
 # screenshot
 riverctl map normal $mod C spawn 'screenshot -s -c'
@@ -29,10 +30,10 @@ riverctl map normal $mod Z zoom
 riverctl map normal $mod S toggle-float
 riverctl map normal $mod F toggle-fullscreen
 
-riverctl map normal $mod H send-layout-cmd rivertile "main-ratio -0.05"
-riverctl map normal $mod L send-layout-cmd rivertile "main-ratio +0.05"
-riverctl map normal ${mod}+Shift H send-layout-cmd rivertile "main-count +1"
-riverctl map normal ${mod}+Shift L send-layout-cmd rivertile "main-count -1"
+riverctl map normal $mod H send-layout-cmd rivertile 'main-ratio -0.05'
+riverctl map normal $mod L send-layout-cmd rivertile 'main-ratio +0.05'
+riverctl map normal ${mod}+Shift H send-layout-cmd rivertile 'main-count +1'
+riverctl map normal ${mod}+Shift L send-layout-cmd rivertile 'main-count -1'
 riverctl map normal ${mod}+Alt H move left 100
 riverctl map normal ${mod}+Alt J move down 100
 riverctl map normal ${mod}+Alt K move up 100
@@ -61,10 +62,10 @@ done
 all_tags=$(((1 << 32) - 1))
 riverctl map normal $mod 0 set-focused-tags $all_tags
 riverctl map normal ${mod}+Shift 0 set-view-tags $all_tags
-riverctl map normal $mod Up    send-layout-cmd rivertile "main-location top"
-riverctl map normal $mod Right send-layout-cmd rivertile "main-location right"
-riverctl map normal $mod Down  send-layout-cmd rivertile "main-location bottom"
-riverctl map normal $mod Left  send-layout-cmd rivertile "main-location left"
+riverctl map normal $mod Up    send-layout-cmd rivertile 'main-location top'
+riverctl map normal $mod Right send-layout-cmd rivertile 'main-location right'
+riverctl map normal $mod Down  send-layout-cmd rivertile 'main-location bottom'
+riverctl map normal $mod Left  send-layout-cmd rivertile 'main-location left'
 
 # media contrl
 riverctl map normal ${mod}+Shift M spawn mpdaction

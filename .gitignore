@@ -86,7 +86,9 @@
 !.inputrc
 !.local
 !.local/bin
+!.local/bin/**
 !.local/bin/getvol
+!.local/bin/menu-clip
 !.local/bin/mpdaction
 !.local/bin/muttauth
 !.local/bin/reloadbar

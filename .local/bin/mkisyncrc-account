@@ -1,0 +1,54 @@
+#!/bin/sh
+
+MAILBOX="~/.mail"
+
+check() {
+	if [ -z "$1" ]; then
+		echo "  invaild argument"
+		exit 1
+	fi
+}
+
+read -p "account(account1, account2, ...) " account
+check "$account"
+
+read -p "user " user
+check "$user"
+
+read -p "email address(outlook.com, ...) " address
+check "$address"
+case "$address" in
+	"outlook.com")
+		host=outlook.office365.com
+		port=993
+		;;
+esac
+
+cat << EOF
+## Account ${account}
+IMAPAccount ${account}
+Host ${host}
+Port ${port}
+User ${user}@${address}
+PassCmd "/usr/share/neomutt/oauth2/mutt_oauth2.py -t ~/.cache/neomutt/oauth-${account}"
+TLSType IMAPS
+AuthMechs XOAUTH2
+
+IMAPStore ${account}-remote
+Account ${account}
+
+MaildirStore ${account}-local
+Path ${MAILBOX}/${account}/
+Inbox ${MAILBOX}/${account}/Inbox
+SubFolders Verbatim
+
+Channel ${account}
+Far :${account}-remote:
+Near :${account}-local:
+Patterns *
+Expunge both
+CopyArrivalDate yes
+Sync All
+Create Near
+SyncState *
+EOF
