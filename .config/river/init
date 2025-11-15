@@ -8,6 +8,7 @@ killall -q fcitx5
 riverctl spawn "fcitx5 -d"
 
 pgrep "sfcp" || riverctl spawn "sfcp"
+pgrep "swayidle" || riverctl spawn "swayidle"
 pgrep -f "$wl_paste_text" || riverctl spawn "$wl_paste_text"
 pgrep -f "$wl_paste_image" || riverctl spawn "$wl_paste_image"
 pgrep "mako" || riverctl spawn "mako"

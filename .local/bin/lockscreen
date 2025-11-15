@@ -1,0 +1,11 @@
+#!/bin/sh
+
+DEFAULT_BACKGROUND_PATH="$HOME/Pictures/wallpaper/onlock"
+
+ARG="-f --indicator-idle-visible -c 000000"
+
+if [ -f "$DEFAULT_BACKGROUND_PATH" ]; then
+	swaylock $ARG -i "$HOME/Pictures/wallpaper/onlock"
+else
+	swaylock $ARG
+fi

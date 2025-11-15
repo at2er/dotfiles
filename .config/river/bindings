@@ -9,6 +9,7 @@ riverctl map normal $mod Q close
 riverctl map normal $mod D spawn 'wmenu-color wmenu-run'
 riverctl map normal $mod Semicolon spawn 'menu-clip'
 riverctl map normal $mod W spawn 'swayimg -a float -g $HOME/Pictures/wallpaper'
+riverctl map normal ${mod}+Shift '*' spawn 'lockscreen'
 
 # screenshot
 riverctl map normal $mod C spawn 'screenshot -s -c'
