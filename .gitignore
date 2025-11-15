@@ -55,6 +55,8 @@
 !.config/shell/alias.sh
 !.config/shell/fzf.sh
 !.config/shell/git.sh
+!.config/swayidle
+!.config/swayidle/config
 !.config/swayimg
 !.config/swayimg/config
 !.config/texinfo

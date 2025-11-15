@@ -6,9 +6,10 @@ local opts = {
   },
   sources = {
     providers = {
-      buffer = { score_offset = 1000 },
-      lsp    = { score_offset = 999  },
-      path   = { score_offset = 998  },
+      buffer  = { score_offset = 1000 },
+      cmdline = { enabled = true, },
+      lsp     = { score_offset = 999  },
+      path    = { score_offset = 998  },
     },
   },
 }
