@@ -4,8 +4,8 @@ require('lsp')
 require('core.lazy')
 
 vim.cmd[[
-" colorscheme catppuccin-mocha
-colorscheme nothing
+colorscheme catppuccin-mocha
+" colorscheme nothing
 ]]
 
 if vim.g.neovide then

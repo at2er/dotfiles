@@ -13,8 +13,6 @@ pgrep -f "$wl_paste_text" || riverctl spawn "$wl_paste_text"
 pgrep -f "$wl_paste_image" || riverctl spawn "$wl_paste_image"
 pgrep "mako" || riverctl spawn "mako"
 
-riverctl map normal Super Return spawn foot
-
 if [ -f "$HOME/Pictures/wallpaper/default" ]; then
 	setwall "$HOME/Pictures/wallpaper/default"
 fi

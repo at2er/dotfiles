@@ -8,7 +8,7 @@ target="clipboard"
 capture() {
 	local arg
 	case "$mode" in
-		all) arg="-" ;;
+		all) arg="" ;;
 		select) arg="-g \"$(slurp -d </dev/null)\"" ;;
 	esac
 	case "$target" in

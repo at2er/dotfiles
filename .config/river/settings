@@ -1,9 +1,9 @@
 #!/bin/sh
 
 riverctl background-color 0x000000
-riverctl border-color-focused 0xa3a3a3
+riverctl border-color-focused 0x222222
 riverctl border-color-unfocused 0x000000
-riverctl border-width 0
+riverctl border-width 1
 riverctl set-repeat 50 300
 riverctl focus-follows-cursor normal
 riverctl rule-add -app-id 'float*' float

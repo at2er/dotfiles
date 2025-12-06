@@ -1,0 +1,3 @@
+#!/bin/bash
+
+swayimg -g -a float -o none $(find $HOME/Pictures/wallpaper/ -type f | sort)

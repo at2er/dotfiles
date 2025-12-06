@@ -1,0 +1,43 @@
+#!/bin/sh
+
+file="$1"
+use_pager=n
+
+list() {
+	case "$file" in
+		*.tar*) tar   tf "$file" ;;
+		*.zip)  unzip -l "$file" ;;
+		*.rar)  unrar l  "$file" ;;
+		*.7z)   7z    l  "$file" ;;
+		*) echo "unsupport archive type"; exit 1 ;;
+	esac
+}
+
+usage() {
+	cat << EOF
+usage: lsar [OPTIONS] [FILE]
+
+options:
+  -h: usage
+  -p: use pager
+EOF
+	exit 1
+}
+
+until [ $# -eq 0 ]; do
+	case "$1" in
+		-h) usage ;;
+		-p) use_pager=y ;;
+		*) file="$1" ;;
+	esac
+	shift
+done
+
+if [ "$use_pager" == "y" ]; then
+	if [ -z "$PAGER" ]; then
+		PAGER=less
+	fi
+	list | $PAGER
+else
+	list
+fi

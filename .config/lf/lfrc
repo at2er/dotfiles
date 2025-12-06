@@ -1,7 +1,7 @@
-set sixel true
 set preview true
 set previewer ~/.local/bin/scope
 set ratios 1:2:3
+set ifs "\n"
 
 source ~/.config/lf/cmds.conf
 source ~/.config/lf/hook.conf
