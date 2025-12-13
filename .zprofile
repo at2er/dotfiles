@@ -15,6 +15,7 @@ export XAUTHORITY="$XDG_CONFIG_HOME/xorg/Xauthority"
 
 export BROWSER="firefox"
 export EDITOR="nvim"
+export PAGER="less"
 #export MANPAGER="less"
 export TERMINAL="foot"
 

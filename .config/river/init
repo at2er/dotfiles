@@ -1,5 +1,8 @@
 #!/bin/sh
 
+inner_gaps=5
+outer_gaps=5
+
 wl_paste_text="wl-paste --type text --watch cliphist store"
 wl_paste_image="wl-paste --type image --watch cliphist store"
 
@@ -12,10 +15,23 @@ pgrep "swayidle" || riverctl spawn "swayidle"
 pgrep -f "$wl_paste_text" || riverctl spawn "$wl_paste_text"
 pgrep -f "$wl_paste_image" || riverctl spawn "$wl_paste_image"
 pgrep "mako" || riverctl spawn "mako"
+pgrep "dam" || riverctl spawn "startdam"
 
-if [ -f "$HOME/Pictures/wallpaper/default" ]; then
+[ -f "$HOME/Pictures/wallpaper/default" ] && \
 	setwall "$HOME/Pictures/wallpaper/default"
-fi
+[ -f "$HOME/.config/river/bindings" ] && \
+	source $HOME/.config/river/bindings
 
-source $HOME/.config/river/bindings
-source $HOME/.config/river/settings
+riverctl background-color 0x000000
+riverctl border-color-focused 0xcdd4fa
+riverctl border-color-unfocused 0x000000
+riverctl border-width 1
+riverctl set-repeat 50 300
+riverctl focus-follows-cursor normal
+riverctl limit-movement disabled
+riverctl rule-add -app-id '*' ssd
+riverctl rule-add -app-id 'float*' float
+riverctl rule-add -app-id 'QQ' float
+
+riverctl default-layout rivercarro
+riverctl spawn "rivercarro -inner-gaps $inner_gaps -outer-gaps $outer_gaps -main-location left"

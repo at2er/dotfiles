@@ -2,51 +2,45 @@
 
 mod=Super
 
-riverctl map normal ${mod}+Shift Q exit
+alias map='riverctl map'
 
-riverctl map normal $mod Return spawn foot
-riverctl map normal $mod Q close
-riverctl map normal $mod D spawn 'wmenu-color wmenu-run'
-riverctl map normal $mod Semicolon spawn 'menu-clip'
-riverctl map normal $mod W spawn 'selwall'
-riverctl map normal ${mod}+Shift '*' spawn 'lockscreen'
+map normal $mod Z           zoom
+map normal $mod S           toggle-float
+map normal $mod F           toggle-fullscreen
+map normal $mod Return      spawn foot
+map normal $mod Q           close
+map normal $mod D           spawn 'wmenu-color wmenu-run'
+map normal $mod Semicolon   spawn 'menu-clip'
+map normal $mod W           spawn 'selwall'
+map normal ${mod}+Shift '*' spawn 'lockscreen'
+map normal ${mod}+Shift Q   exit
 
 # screenshot
-riverctl map normal $mod C spawn 'screenshot -s -c'
-riverctl map normal $mod Print spawn 'screenshot -a -c'
-riverctl map normal ${mod}+Shift C spawn 'screenshot -s -f'
-riverctl map normal ${mod}+Shift Print spawn 'screenshot -a -f'
+map normal $mod         C     spawn 'screenshot -s -c'
+map normal $mod         Print spawn 'screenshot -a -c'
+map normal ${mod}+Shift C     spawn 'screenshot -s -f'
+map normal ${mod}+Shift Print spawn 'screenshot -a -f'
 
-riverctl map normal $mod J focus-view next
-riverctl map normal $mod K focus-view previous
-riverctl map normal ${mod}+Shift J swap next
-riverctl map normal ${mod}+Shift K swap previous
-
-riverctl map normal $mod Period focus-output next
-riverctl map normal $mod Comma focus-output previous
-riverctl map normal ${mod}+Shift Period send-to-output next
-riverctl map normal ${mod}+Shift Comma send-to-output previous
-
-riverctl map normal $mod Z zoom
-riverctl map normal $mod S toggle-float
-riverctl map normal $mod F toggle-fullscreen
-
-riverctl map normal $mod H send-layout-cmd rivertile 'main-ratio -0.05'
-riverctl map normal $mod L send-layout-cmd rivertile 'main-ratio +0.05'
-riverctl map normal ${mod}+Shift H send-layout-cmd rivertile 'main-count +1'
-riverctl map normal ${mod}+Shift L send-layout-cmd rivertile 'main-count -1'
-riverctl map normal ${mod}+Alt H move left 100
-riverctl map normal ${mod}+Alt J move down 100
-riverctl map normal ${mod}+Alt K move up 100
-riverctl map normal ${mod}+Alt L move right 100
-riverctl map normal ${mod}+Alt+Control H snap left
-riverctl map normal ${mod}+Alt+Control J snap down
-riverctl map normal ${mod}+Alt+Control K snap up
-riverctl map normal ${mod}+Alt+Control L snap right
-riverctl map normal ${mod}+Alt+Shift H resize horizontal -100
-riverctl map normal ${mod}+Alt+Shift J resize vertical 100
-riverctl map normal ${mod}+Alt+Shift K resize vertical -100
-riverctl map normal ${mod}+Alt+Shift L resize horizontal 100
+map -repeat normal $mod         J      focus-view     next
+map -repeat normal $mod         K      focus-view     previous
+map -repeat normal ${mod}+Shift J      swap           next
+map -repeat normal ${mod}+Shift K      swap           previous
+map -repeat normal $mod         Period focus-output   next
+map -repeat normal $mod         Comma  focus-output   previous
+map -repeat normal ${mod}+Shift Period send-to-output next
+map -repeat normal ${mod}+Shift Comma  send-to-output previous
+map -repeat normal ${mod}+Alt H move left 100
+map -repeat normal ${mod}+Alt J move down 100
+map -repeat normal ${mod}+Alt K move up 100
+map -repeat normal ${mod}+Alt L move right 100
+map -repeat normal ${mod}+Alt+Shift H resize horizontal -100
+map -repeat normal ${mod}+Alt+Shift J resize vertical 100
+map -repeat normal ${mod}+Alt+Shift K resize vertical -100
+map -repeat normal ${mod}+Alt+Shift L resize horizontal 100
+map normal ${mod}+Alt+Control H snap left
+map normal ${mod}+Alt+Control J snap down
+map normal ${mod}+Alt+Control K snap up
+map normal ${mod}+Alt+Control L snap right
 riverctl map-pointer normal $mod BTN_LEFT move-view
 riverctl map-pointer normal $mod BTN_RIGHT resize-view
 riverctl map-pointer normal $mod BTN_MIDDLE toggle-float
@@ -54,31 +48,36 @@ riverctl map-pointer normal $mod BTN_MIDDLE toggle-float
 for i in $(seq 1 9)
 do
     tags=$((1 << ($i - 1)))
-    riverctl map normal $mod $i set-focused-tags $tags
-    riverctl map normal ${mod}+Shift $i set-view-tags $tags
-    riverctl map normal ${mod}+Control $i toggle-focused-tags $tags
-    riverctl map normal ${mod}+Shift+Control $i toggle-view-tags $tags
+    map normal $mod $i set-focused-tags $tags
+    map normal ${mod}+Shift $i set-view-tags $tags
+    map normal ${mod}+Control $i toggle-focused-tags $tags
+    map normal ${mod}+Shift+Control $i toggle-view-tags $tags
 done
-
 all_tags=$(((1 << 32) - 1))
-riverctl map normal $mod 0 set-focused-tags $all_tags
-riverctl map normal ${mod}+Shift 0 set-view-tags $all_tags
-riverctl map normal $mod Up    send-layout-cmd rivertile 'main-location top'
-riverctl map normal $mod Right send-layout-cmd rivertile 'main-location right'
-riverctl map normal $mod Down  send-layout-cmd rivertile 'main-location bottom'
-riverctl map normal $mod Left  send-layout-cmd rivertile 'main-location left'
+map normal $mod 0 set-focused-tags $all_tags
+map normal ${mod}+Shift 0 set-view-tags $all_tags
 
 # media contrl
-riverctl map normal ${mod}+Shift M spawn mpdaction
-riverctl map normal ${mod} G spawn 'getvol -n'
+map normal ${mod}+Shift M spawn mpdaction
+map normal ${mod}       G spawn 'getvol -n'
 for mode in normal locked
 do
-    riverctl map $mode ${mod}+Alt Up   spawn 'setvol -u'
-    riverctl map $mode ${mod}+Alt Down spawn 'setvol -d'
+    map $mode ${mod}+Alt Up   spawn 'setvol -u'
+    map $mode ${mod}+Alt Down spawn 'setvol -d'
 
-    riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set 5%+'
-    riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
+    map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set 5%+'
+    map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 
-    riverctl map $mode None XF86AudioRaiseVolume  spawn 'setvol -u'
-    riverctl map $mode None XF86AudioLowerVolume  spawn 'setvol -d'
+    map $mode None XF86AudioRaiseVolume  spawn 'setvol -u'
+    map $mode None XF86AudioLowerVolume  spawn 'setvol -d'
 done
+
+map normal $mod M     send-layout-cmd rivercarro 'main-location monocle'
+map normal $mod Up    send-layout-cmd rivercarro 'main-location top'
+map normal $mod Right send-layout-cmd rivercarro 'main-location right'
+map normal $mod Down  send-layout-cmd rivercarro 'main-location bottom'
+map normal $mod Left  send-layout-cmd rivercarro 'main-location left'
+map -repeat normal $mod H send-layout-cmd rivercarro 'main-ratio -0.05'
+map -repeat normal $mod L send-layout-cmd rivercarro 'main-ratio +0.05'
+map -repeat normal ${mod}+Shift H send-layout-cmd rivercarro 'main-count +1'
+map -repeat normal ${mod}+Shift L send-layout-cmd rivercarro 'main-count -1'

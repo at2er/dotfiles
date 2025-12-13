@@ -1,0 +1,41 @@
+#!/bin/sh
+# wayland pick color
+
+# clipboard | notify
+mode="clipboard"
+
+cmd() {
+	grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-
+}
+
+pick() {
+	case "$mode" in
+		clipboard) cmd | wl-copy ;;
+		notify) cmd | xargs notify-send ;;
+	esac
+}
+
+usage() {
+	cat << EOF
+usage:   wlpc [<options>]
+
+options: -c: use clipboard
+         -n: notify
+         -h: usage
+EOF
+}
+
+until [ $# -eq 0 ]; do
+	case "$1" in
+		-c) mode="clipboard" ;;
+		-n) mode="notify" ;;
+		-h) usage ;;
+		*)
+			echo "invaild argument"
+			exit 1
+			;;
+	esac
+	shift
+done
+
+pick

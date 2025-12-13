@@ -1,10 +1,21 @@
+set pager_stop
+set sidebar_short_path
+set sidebar_folder_indent
+set sidebar_format = "%B %* [%?N?%N / ?%S]"
+set mail_check_stats
+unset wait_key
+unset markers
+auto_view text/plain
+
 set folder = "~/.mail"
 set mbox_type = Maildir
 
 set mailcap_path = "~/.config/neomutt/mailcap"
 
+color status blue default
+color header magenta default
+
 source "~/.config/neomutt/keybinds"
 # put 'source "~/.config/neomutt/accounts/<account>"'
 # to 'local' config
 source "~/.config/neomutt/local"
-source "~/.config/neomutt/sidebar"
