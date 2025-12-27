@@ -1,6 +1,6 @@
 #!/bin/sh
 
-envfc="sfcp-filechooser"
+envfc="float"
 
 class="-a $envfc"
 
