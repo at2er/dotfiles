@@ -41,7 +41,9 @@ trysource "$SHELL_CONFIG/fzf.sh"
 [ ! -z $(command -v tmuxifier) ] && eval "$(tmuxifier init -)"
 [ ! -z $(command -v zoxide) ] && eval "$(zoxide init zsh)"
 
-[ -f "$HOME/.config/dircolors" ] && source <(dircolors ~/.config/dircolors)
+if [ -f "$HOME/.config/dircolors" ] && command -v dircolors &>/dev/null; then
+	source <(dircolors ~/.config/dircolors)
+fi
 
 autoload -Uz edit-command-line
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search

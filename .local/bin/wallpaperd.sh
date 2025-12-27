@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 bg_dir=~/Pictures/wallpaper
 interval="10m"

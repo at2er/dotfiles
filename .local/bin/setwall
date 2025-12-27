@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ln -fns "$(realpath $1)" /tmp/current-wallpaper
 
