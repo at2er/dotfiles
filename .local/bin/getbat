@@ -1,34 +1,24 @@
 #!/bin/sh
 
-DEFAULT_BAT=BAT0
+DEFAULT_BAT=BAT1
 SUBSYS="/sys/class/power_supply"
-
-get_state() {
-	if [ ! -d "$SUBSYS/$1" ]; then
-		echo "AC Connected"
-		exit 0
-	fi
-	local cap=$(cat "$SUBSYS/$1/capacity")
-	local stat=""
-	local stat_raw=$(cat "$SUBSYS/$1/status")
-	case "$stat_raw" in
-		Charging)          stat="+" ;;
-		Discharging)       stat="-" ;;
-		"Not charging"|Full) stat="o" ;;
-	esac
-	echo "$cap%$stat"
-}
 
 usage() {
 	cat << EOF
-usage: getbat [-h] [BAT{0,...}]
+usage: getbat [-h] [BATx]
   -h: usage
 EOF
 }
 
-[ $# -lt 1 ] && echo too less arguments && exit 1
+[ "$1" == "-h" ] && usage
 
-case "$1" in
-	"-h") usage ;;
-	*) get_state "$1" ;;
+bat=${1:-$DEFAULT_BAT}
+[ ! -d "$SUBSYS/$bat" ] && echo "AC Connected" && exit 0
+cap=$(cat "$SUBSYS/$bat/capacity")
+stat=""
+case "$(cat "$SUBSYS/$bat/status")" in
+	Charging)            stat="+" ;;
+	Discharging)         stat="-" ;;
+	"Not charging"|Full) stat="o" ;;
 esac
+echo "$cap%$stat"
