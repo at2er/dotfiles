@@ -4,16 +4,16 @@ mod=Super
 
 alias map='riverctl map'
 
-map normal $mod Z           zoom
-map normal $mod S           toggle-float
-map normal $mod F           toggle-fullscreen
-map normal $mod Return      spawn foot
-map normal $mod Q           close
-map normal $mod D           spawn 'wmenu-color wmenu-run'
-map normal $mod Semicolon   spawn 'menu-clip'
-map normal $mod W           spawn 'selwall'
-map normal ${mod}+Shift '*' spawn 'lockscreen'
-map normal ${mod}+Shift Q   exit
+map normal $mod Z             zoom
+map normal $mod S             toggle-float
+map normal $mod F             toggle-fullscreen
+map normal $mod Return        spawn foot
+map normal $mod Q             close
+map normal $mod D             spawn 'wmenu-color wmenu-run'
+map normal $mod Semicolon     spawn 'menu-clip'
+map normal $mod W             spawn 'selwall'
+map normal ${mod}+Control L   spawn 'lockscreen'
+map normal ${mod}+Shift Q     exit
 
 # screenshot
 map normal $mod         C     spawn 'screenshot -s -c'

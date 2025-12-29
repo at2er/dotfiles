@@ -17,7 +17,7 @@ get_mpc() {
 
 usage() {
 	cat << EOF
-usage: volume [-hlgm]
+usage: getvol [-hlgm]
   -h: usage
   -g: get volume
   -m: get media status (volume & mpc)
@@ -27,7 +27,7 @@ EOF
 
 case "$1" in
 	"-h") usage ;;
-	"-g") get_volume ;;
+	"-g"|*) get_volume ;;
 	"-m") get_media ;;
 	"-n") notify-send "$(get_volume)" "$(get_mpc)" -t 1000 ;;
 esac
