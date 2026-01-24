@@ -47,6 +47,7 @@ opts.completion = {
 
 local M = {
   'saghen/blink.cmp',
+  enabled = false,
   event = {
     'InsertEnter',
     'CmdlineEnter'

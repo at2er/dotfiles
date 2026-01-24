@@ -1,12 +1,12 @@
 local severity = vim.diagnostic.severity
 
-vim.lsp.enable({
-  'clangd',
-  'gopls',
-  'lua_ls',
-  'pyright',
-  'zls',
-})
+-- vim.lsp.enable({
+--   'clangd',
+--   'gopls',
+--   'lua_ls',
+--   'pyright',
+--   'zls',
+-- })
 
 vim.diagnostic.config({
   virtual_text = false,

@@ -25,7 +25,7 @@ capture_to_file() {
 	if [ -n "$output" ]; then
 		eval "grim $1 \"$output\""
 	else
-		eval "grim $1"
+		eval "grim $1 \"$HOME/Pictures/screenshots/shot_$(date +%Y%m%d_%H%M%S).jpg\""
 	fi
 }
 

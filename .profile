@@ -49,4 +49,6 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[1;32m'
 
+export MANWIDTH=80
+
 [ -f "$XDG_CONFIG_HOME/user-dirs.dirs" ] && source $XDG_CONFIG_HOME/user-dirs.dirs

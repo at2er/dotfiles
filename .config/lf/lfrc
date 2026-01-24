@@ -1,5 +1,5 @@
 set preview true
-set previewer ~/.local/bin/scope
+set previewer ~/.local/bin/preview
 set ratios 1:2:3
 set ifs "\n"
 

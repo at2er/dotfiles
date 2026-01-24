@@ -5,6 +5,7 @@ vim.g.maplocalleader = ' '
 vim.g.mapleader = ' '
 
 vim.keymap.set('i', 'jk', '<esc>', opt)
+vim.keymap.set('i', 'jj', 'j',     opt)
 vim.keymap.set('i', '<c-b>', '<left>',  opt)
 vim.keymap.set('i', '<c-f>', '<right>', opt)
 vim.keymap.set('i', '<c-n>', '<down>',  opt)

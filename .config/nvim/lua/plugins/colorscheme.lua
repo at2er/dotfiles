@@ -10,6 +10,9 @@ local M = {
         enable = true,
       },
     },
+    styles = {
+      comments = {}, -- Change the style of comments
+    },
   },
 }
 
