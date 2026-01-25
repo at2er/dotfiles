@@ -1,5 +1,6 @@
 .gitignore
 .git
+.luarc.json
 README.md
 LICENSE
 LICENSE.*
@@ -7,3 +8,4 @@ LICENSE.*
 configure
 etc
 scripts
+setup
