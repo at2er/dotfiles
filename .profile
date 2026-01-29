@@ -3,11 +3,11 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-if command -v openrc &> /dev/null; then
-	if [ -d ${XDG_CONFIG_HOME:-~/.config}/rc/runlevels/default ]; then
-		openrc -U default
-	fi
-fi
+# if command -v openrc &> /dev/null; then
+# 	if [ -d ${XDG_CONFIG_HOME:-~/.config}/rc/runlevels/default ]; then
+# 		openrc -U default
+# 	fi
+# fi
 
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
@@ -40,15 +40,17 @@ export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
 export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
 export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/plugins/tmuxifier/layouts"
 
-export LESS=-R
-export LESS_TERMCAP_mb=$'\E[1;31m'
-export LESS_TERMCAP_md=$'\E[1;36m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[1;32m'
+#export LESS=-R
+#export LESS_TERMCAP_mb=$'\E[1;31m'
+#export LESS_TERMCAP_md=$'\E[1;36m'
+#export LESS_TERMCAP_me=$'\E[0m'
+#export LESS_TERMCAP_se=$'\E[0m'
+#export LESS_TERMCAP_so=$'\E[01;44;33m'
+#export LESS_TERMCAP_ue=$'\E[0m'
+#export LESS_TERMCAP_us=$'\E[1;32m'
 
 export MANWIDTH=80
 
 [ -f "$XDG_CONFIG_HOME/user-dirs.dirs" ] && source $XDG_CONFIG_HOME/user-dirs.dirs
+
+export THEOS=~/projects/theos

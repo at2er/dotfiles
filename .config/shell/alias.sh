@@ -11,3 +11,6 @@ alias tm="tmux"
 alias tma="tmux attach"
 alias lg="lazygit"
 alias mt="neomutt"
+
+alias ,p="cd ~/projects"
+alias ,w="cd ~/workspace"

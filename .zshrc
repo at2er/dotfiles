@@ -33,7 +33,7 @@ SYS_PLUGINS_DIR_LOCAL="/usr/local/share/zsh/plugins"
 trysource /usr/share/git/completion/git-prompt.sh
 trysource $SYS_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 trysource $SYS_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
-trysource $SYS_PLUGINS_DIR_LOCAL/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
+#trysource $SYS_PLUGINS_DIR_LOCAL/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
 
 trysource "$SHELL_CONFIG/fzf.sh"
 
