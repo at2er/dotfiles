@@ -8,6 +8,10 @@ wl_paste_image="wl-paste --type image --watch cliphist store"
 
 killall -q fcitx5
 
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
+systemctl --user restart xdg-desktop-portal
+
 riverctl spawn "fcitx5 -d"
 
 pgrep "sfcp" || riverctl spawn "sfcp"

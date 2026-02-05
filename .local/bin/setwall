@@ -1,10 +1,10 @@
 #!/bin/sh
 
-ln -fns "$(realpath $1)" /tmp/current-wallpaper
+ln -fns "$(realpath "$1")" /tmp/current-wallpaper
 
 [ -x "$HOME/.local/bin/setwall.d/hook.sh" ] && $HOME/.local/bin/setwall.d/hook.sh &
 
-swaybg -i $1 -m fill &
+swaybg -i "$1" -m fill &
 cur=$!
 sleep 1s
 others=$(pgrep swaybg | grep -v $cur)
