@@ -5,6 +5,7 @@ require('core.lazy')
 
 vim.cmd[[
 colorscheme catppuccin-mocha
+" colorscheme tokyonight
 syntax on
 " colorscheme nothing
 ]]

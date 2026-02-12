@@ -29,9 +29,9 @@ local M = {
       defaults = {
         borderchars = { ' ', ' ' ,' ' ,' ' ,' ' ,' ' ,' ' ,' ' },
         mappings = {
-          i = {
-            ['<esc>'] = actions.close
-          }
+          n = {
+            ['<leader>a'] = actions.send_to_qflist,
+          },
         }
       }
     })
