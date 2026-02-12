@@ -7,7 +7,6 @@ trysource $SHELL_CONFIG/alias.sh
 
 ZSH_CONFIG="$HOME/.config/zsh"
 trysource $ZSH_CONFIG/private_conf.zsh
-trysource $ZSH_CONFIG/prompt.zsh
 
 # history
 HISTFILE="$XDG_STATE_HOME/zsh_history"
@@ -22,18 +21,24 @@ setopt hist_ignore_dups
 autoload -U compinit
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompdump"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' list-prompt '' # no "do you wish to see all...?"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' rehash true
+zstyle ':completion:*' select-prompt '' # no "do you wish to see all...?"
 compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 
 # plugin
 SYS_PLUGINS_DIR="/usr/share/zsh/plugins"
 SYS_PLUGINS_DIR_LOCAL="/usr/local/share/zsh/plugins"
-trysource /usr/share/git/completion/git-prompt.sh
+#trysource /usr/share/git/completion/git-prompt.sh
 trysource $SYS_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 trysource $SYS_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 #trysource $SYS_PLUGINS_DIR_LOCAL/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
+
+if command -v fzf &>/dev/null; then
+	source <(fzf --zsh)
+fi
 
 trysource "$SHELL_CONFIG/fzf.sh"
 
@@ -61,3 +66,11 @@ bindkey "^N" down-line-or-beginning-search
 bindkey "^B" backward-char
 bindkey "^F" forward-char
 bindkey "^X^E" edit-command-line
+
+# prompt
+setopt PROMPT_SUBST
+PROMPT_EXIT_CODE='%B%F{red}%(?..%? )%f%b'
+PROMPT_DIR='%1~'
+PROMPT_SYMBOL='%(?.%B%F{green}>%f%b.%B%F{red}>%f%b)'
+PROMPT_ROOT='%(!.%B%F{red}[ROOT]%f%b.)'
+PS1='${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR} ${PROMPT_SYMBOL} '

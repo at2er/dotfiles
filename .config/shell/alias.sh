@@ -1,10 +1,11 @@
 [ -f $SHELL_CONFIG/git.sh ] && source $SHELL_CONFIG/git.sh
 
+alias e="$EDITOR"
 alias grep="grep --color=auto"
 alias s="fastfetch"
 alias ip="ip -color"
 alias ls="ls --color=auto"
-alias ll="ls -l"
+alias ll="ls -lh"
 alias ra="lf"
 alias rv="exec river"
 alias tm="tmux"
@@ -13,4 +14,9 @@ alias lg="lazygit"
 alias mt="neomutt"
 
 alias ,p="cd ~/projects"
+alias ,lb="cd ~/.local/bin"
+alias ,ls="cd ~/.local/share"
+alias ,ui="cd /usr/include"
+alias ,ul="cd /usr/lib"
+alias ,us="cd /usr/share"
 alias ,w="cd ~/workspace"

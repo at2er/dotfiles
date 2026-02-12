@@ -8,7 +8,7 @@ unset wait_key
 unset markers
 auto_view text/plain
 
-set folder = "~/.mail"
+set folder = "~/.cache/mail"
 set mbox_type = Maildir
 
 set mailcap_path = "~/.config/neomutt/mailcap"

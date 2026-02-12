@@ -9,11 +9,15 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # 	fi
 # fi
 
+export CALCHISTFILE="$XDG_STATE_HOME/calc_history"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
+export NETHACKOPTIONS="-c $HOME/.config/nethack/nethackrc"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
+export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+export W3M_DIR="$XDG_DATA_HOME/w3m"
 export XINITRC="$XDG_CONFIG_HOME/xorg/xinitrc"
 export XAUTHORITY="$XDG_CONFIG_HOME/xorg/Xauthority"
 
