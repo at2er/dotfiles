@@ -1,6 +1,6 @@
-setopt PROMPT_SUBST
+# setopt PROMPT_SUBST
 
-GIT_PROMPT_SCRIPT="/usr/share/git/completion/git-prompt.sh"
+# GIT_PROMPT_SCRIPT="/usr/share/git/completion/git-prompt.sh"
 
 # Uncomment these to enable git prompt
 #[ -f "$GIT_PROMPT_SCRIPT" ] && source $GIT_PROMPT_SCRIPT
@@ -14,11 +14,11 @@ GIT_PROMPT_SCRIPT="/usr/share/git/completion/git-prompt.sh"
 #GIT_PS1_SHOWCOLORHINTS=1
 
 # prompt
-PROMPT_EXIT_CODE='%B%F{red}%(?..%? )%f%b'
-PROMPT_DIR='%1~'
-PROMPT_SYMBOL='%(?.%B%F{green}>%f%b.%B%F{red}>%f%b)'
-PROMPT_ROOT='%(!.%B%F{red}[ROOT]%f%b.)'
-PROMPT_GIT='[%n@%m %c$(__git_ps1 " (%s)")]'
+# PROMPT_EXIT_CODE='%B%F{red}%(?..%? )%f%b'
+# PROMPT_DIR='%1~'
+# PROMPT_SYMBOL='%(?.%B%F{green}>%f%b.%B%F{red}>%f%b)'
+# PROMPT_ROOT='%(!.%B%F{red}[ROOT]%f%b.)'
+# PROMPT_GIT='[%n@%m %c$(__git_ps1 " (%s)")]'
 # Uncomment this to enable git prompt
 #PS1='${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR}$(__git_ps1 " (%s)") ${PROMPT_SYMBOL} '
-PS1='${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR} ${PROMPT_SYMBOL} '
+# PS1='${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR} ${PROMPT_SYMBOL} '
