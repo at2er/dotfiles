@@ -12,6 +12,7 @@ map normal $mod Q             close
 map normal $mod D             spawn 'wmenu-color wmenu-run'
 map normal $mod Semicolon     spawn 'menu-clip'
 map normal $mod W             spawn 'selwall'
+map normal ${mod}+Shift W     spawn 'wooz --invert-scroll --map-close q'
 map normal ${mod}+Control L   spawn 'lockscreen'
 map normal ${mod}+Shift Q     exit
 
@@ -59,7 +60,7 @@ map normal ${mod}+Shift 0 set-view-tags $all_tags
 
 # media contrl
 map normal ${mod}+Shift M spawn mpdaction
-map normal ${mod}       G spawn 'getvol -n'
+map normal ${mod}+Shift G spawn 'getvol -n'
 for mode in normal locked
 do
     map $mode ${mod}+Alt Up   spawn 'setvol -u'
@@ -81,3 +82,7 @@ map -repeat normal $mod H send-layout-cmd rivercarro 'main-ratio -0.05'
 map -repeat normal $mod L send-layout-cmd rivercarro 'main-ratio +0.05'
 map -repeat normal ${mod}+Shift H send-layout-cmd rivercarro 'main-count +1'
 map -repeat normal ${mod}+Shift L send-layout-cmd rivercarro 'main-count -1'
+
+# warpd
+map normal $mod X spawn 'warpd --normal'
+map normal $mod G spawn 'warpd --grid'
