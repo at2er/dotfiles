@@ -1,6 +1,7 @@
 local M = {
   'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
+  enabled = false,
   keys = {
     { '<leader>ff', '<cmd>Telescope find_files<cr>'},
     { '<leader>fg', '<cmd>Telescope live_grep<cr>' },

@@ -42,4 +42,41 @@ return {
     },
     opts = {},
   },
+  {
+    'ibhagwan/fzf-lua',
+    cmd = 'FzfLua',
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    -- or if using mini.icons/mini.nvim
+    -- dependencies = { "nvim-mini/mini.icons" },
+    keys = {
+      { '<leader>fb', '<cmd>FzfLua buffers<cr>'},
+      { '<leader>ff', '<cmd>FzfLua files<cr>'},
+      { '<leader>fg', '<cmd>FzfLua grep<cr>' },
+      { '<leader>fr', '<cmd>FzfLua resume<cr>'},
+    },
+    opts = {
+      winopts = {
+        width = 1,
+        row = 1,
+        col = 0.50,
+        backdrop = 100,
+        border = 'none',
+        preview = {
+          border = 'none',
+        },
+      },
+      fzf_opts = {
+        ['--border']       = 'none',
+        ['--info']         = 'inline',
+        ['--layout']       = 'default',
+        ['--no-scrollbar'] = true,
+        ['--no-separator'] = true,
+      },
+      fzf_colors = {
+        ["bg"]  = { "bg", { "Normal" } },
+        ["bg+"] = { "bg", { "CursorLine", "Normal" } },
+      },
+    },
+  },
 }

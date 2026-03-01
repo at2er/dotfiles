@@ -36,6 +36,7 @@ riverctl limit-movement disabled
 riverctl rule-add -app-id '*' ssd
 riverctl rule-add -app-id 'float*' float
 riverctl rule-add -app-id 'QQ' float
+riverctl rule-add -app-id 'QQ' -title 'QQ' no-float
 
 riverctl default-layout rivercarro
 riverctl spawn "rivercarro -inner-gaps $inner_gaps -outer-gaps $outer_gaps -main-location left"
