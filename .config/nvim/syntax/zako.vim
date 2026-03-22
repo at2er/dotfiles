@@ -10,7 +10,9 @@ syn match   zakoNumber /\<[0-9]\+\>/
 syn region  zakoCharacter start=/'/ skip=/\\"/ end=/'/
 syn region  zakoString start=/"/ skip=/\\"/ end=/"/
 
+syn keyword zakoKeywordAs     as nextgroup=zakoType skipwhite
 syn keyword zakoKeywordIf     if
+syn keyword zakoKeywordMod    mod
 syn keyword zakoKeywordMut    mut nextgroup=zakoIdentAndType skipwhite
 syn keyword zakoKeywordPub    pub nextgroup=zakoFunctionPub skipwhite
 syn keyword zakoKeywordReturn return
@@ -40,8 +42,10 @@ hi def link zakoComment        Comment
 hi def link zakoFunction       Function
 hi def link zakoFunctionPub    Function
 hi def link zakoIdentAndType   Identifier
+hi def link zakoKeywordAs      Keyword
 hi def link zakoKeywordFn      Keyword
 hi def link zakoKeywordIf      Keyword
+hi def link zakoKeywordMod     Keyword
 hi def link zakoKeywordMut     Keyword
 hi def link zakoKeywordLet     Keyword
 hi def link zakoKeywordPub     Keyword

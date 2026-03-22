@@ -32,8 +32,8 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 SYS_PLUGINS_DIR="/usr/share/zsh/plugins"
 SYS_PLUGINS_DIR_LOCAL="/usr/local/share/zsh/plugins"
 #trysource /usr/share/git/completion/git-prompt.sh
-trysource $SYS_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-trysource $SYS_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
+#trysource $SYS_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#trysource $SYS_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 #trysource $SYS_PLUGINS_DIR_LOCAL/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
 
 if command -v fzf &>/dev/null; then
@@ -66,11 +66,16 @@ bindkey "^N" down-line-or-beginning-search
 bindkey "^B" backward-char
 bindkey "^F" forward-char
 bindkey "^X^E" edit-command-line
+# bindkey -M menuselect 'h' vi-backward-char
+# bindkey -M menuselect 'k' vi-up-line-or-history
+# bindkey -M menuselect 'l' vi-forward-char
+# bindkey -M menuselect 'j' vi-down-line-or-history
 
 # prompt
-setopt PROMPT_SUBST
-PROMPT_EXIT_CODE='%B%F{red}%(?..%? )%f%b'
-PROMPT_DIR='%1~'
-PROMPT_SYMBOL='%(?.%B%F{green}>%f%b.%B%F{red}>%f%b)'
-PROMPT_ROOT='%(!.%B%F{red}[ROOT]%f%b.)'
-PS1='${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR} ${PROMPT_SYMBOL} '
+#setopt PROMPT_SUBST
+#PROMPT_EXIT_CODE='%B%F{red}%(?..%? )%f%b'
+#PROMPT_DIR='%1~'
+#PROMPT_SYMBOL='%(?.%B%F{green}>%f%b.%B%F{red}>%f%b)'
+#PROMPT_ROOT='%(!.%B%F{red}[ROOT]%f%b.)'
+#PS1='${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR} ${PROMPT_SYMBOL} '
+PS1='%m %1~%# '
