@@ -1,0 +1,93 @@
+#!/bin/sh
+
+MAILBOX="~/.mail"
+
+check() {
+	if [ -z "$1" ]; then
+		echo "  invaild argument"
+		exit 1
+	fi
+}
+
+usage() {
+	cat << EOF
+Usage: mkisyncrc-account [OPTIONS]
+
+Options:
+	-a, --account:    set account name        (oauth-<account>)
+  -h, --help:       usage
+	-r, --addr[ess]:  set mail server address (user@<address.com>)
+	-u, --user:       set user                (<user>@address.com)
+
+Get account oauth2 token:
+  /usr/share/neomutt/oauth2/mutt_oauth2.py \\
+    -a \\
+    --encryption-pipe 'gpg --encrypt --recipient <gpg id>' \\
+    --client-id <client id> \\
+    ~/.cache/neomutt/oauth-account0
+Client id:
+	outlook(thunderbird): 9e5f94bc-e8a4-4e73-b8be-63364c29d753
+EOF
+	exit 1
+}
+
+until [ $# -eq 0 ]; do
+	case "$1" in
+		-a|--account) account="$2" && shift ;;
+		-h|--help)    usage ;;
+		-r|--addr*)   address="$2" && shift ;;
+		-u|--user)    user="$2"    && shift ;;
+	esac
+	shift
+done
+
+if [ -z "$account" ]; then
+	read -p "account(account1, account2, ...) " account
+	check "$account"
+fi
+
+if [ -z "$user" ]; then
+	read -p "user " user
+	check "$user"
+fi
+
+if [ -z "$address" ]; then
+	read -p "email address(outlook.com, ...) " address
+	check "$address"
+fi
+
+case "$address" in
+	"outlook.com")
+		host=outlook.office365.com
+		port=993
+		;;
+esac
+
+cat << EOF
+## Account ${account}
+IMAPAccount ${account}
+Host ${host}
+Port ${port}
+User ${user}@${address}
+PassCmd "/usr/share/neomutt/oauth2/mutt_oauth2.py -t ~/.cache/neomutt/oauth-${account}"
+TLSType IMAPS
+AuthMechs XOAUTH2
+
+IMAPStore ${account}-remote
+Account ${account}
+
+MaildirStore ${account}-local
+Path ${MAILBOX}/${account}/
+Inbox ${MAILBOX}/${account}/Inbox
+SubFolders Verbatim
+
+Channel ${account}
+Far :${account}-remote:
+Near :${account}-local:
+Patterns *
+Expunge both
+CopyArrivalDate yes
+Sync All
+Create Near
+SyncState *
+EOF
