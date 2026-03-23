@@ -31,7 +31,7 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
 # plugin
 SYS_PLUGINS_DIR="/usr/share/zsh/plugins"
 SYS_PLUGINS_DIR_LOCAL="/usr/local/share/zsh/plugins"
-#trysource /usr/share/git/completion/git-prompt.sh
+trysource /usr/share/git/completion/git-prompt.sh
 #trysource $SYS_PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #trysource $SYS_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 #trysource $SYS_PLUGINS_DIR_LOCAL/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
@@ -72,10 +72,13 @@ bindkey "^X^E" edit-command-line
 # bindkey -M menuselect 'j' vi-down-line-or-history
 
 # prompt
-#setopt PROMPT_SUBST
+setopt PROMPT_SUBST
+GIT_PS1_SHOWUPSTREAM=1
+GIT_PS1_STATESEPARATOR=" "
+GIT_PS1_SHOWCOLORHINTS=1
 #PROMPT_EXIT_CODE='%B%F{red}%(?..%? )%f%b'
 #PROMPT_DIR='%1~'
 #PROMPT_SYMBOL='%(?.%B%F{green}>%f%b.%B%F{red}>%f%b)'
 #PROMPT_ROOT='%(!.%B%F{red}[ROOT]%f%b.)'
 #PS1='${PROMPT_ROOT}${PROMPT_EXIT_CODE}${PROMPT_DIR} ${PROMPT_SYMBOL} '
-PS1='%m %1~%# '
+PS1='%m$(__git_ps1 " (%s)") %1~%# '

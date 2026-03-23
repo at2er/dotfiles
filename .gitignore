@@ -88,6 +88,8 @@
 !.config/mimeapps.list
 !.config/picom.conf
 !.gitignore
+!.gnupg
+!.gnupg/gpg-agent.conf
 !.inputrc
 !.local
 !.local/bin
