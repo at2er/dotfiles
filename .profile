@@ -12,7 +12,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export CALCHISTFILE="$XDG_STATE_HOME/calc_history"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
-export NETHACKOPTIONS="-c $HOME/.config/nethack/nethackrc"
+export NETHACKOPTIONS=@$HOME/.config/nethack/nethackrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PYTHON_HISTORY="$XDG_STATE_HOME/python_history"
@@ -22,7 +22,7 @@ export XINITRC="$XDG_CONFIG_HOME/xorg/xinitrc"
 export XAUTHORITY="$XDG_CONFIG_HOME/xorg/Xauthority"
 
 export BROWSER="firefox"
-export EDITOR="nvim"
+export EDITOR="meo"
 export PAGER="less"
 #export MANPAGER="less"
 export TERMINAL="foot"
@@ -57,4 +57,5 @@ export MANWIDTH=80
 
 [ -f "$XDG_CONFIG_HOME/user-dirs.dirs" ] && source $XDG_CONFIG_HOME/user-dirs.dirs
 
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export THEOS=~/projects/theos

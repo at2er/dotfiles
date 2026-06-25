@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set +x
+
+TERMINAL=footclient
+
+footclient
+
+#footclient -e abduco -c 0 scroll zsh

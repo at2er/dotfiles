@@ -15,6 +15,6 @@ EOF
 
 case "$1" in
 	"-h") usage ;;
-	"-u") amixer sset Master ${SHIFT}%+ ;;
-	"-d") amixer sset Master ${SHIFT}%- ;;
+	"-u") wpctl set-volume @DEFAULT_SINK@ ${SHIFT}%+ ;;
+	"-d") wpctl set-volume @DEFAULT_SINK@ ${SHIFT}%- ;;
 esac

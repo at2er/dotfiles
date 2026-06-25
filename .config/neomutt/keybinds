@@ -12,6 +12,7 @@ bind attach,index,pager h  exit
 bind pager              j  next-line
 bind pager              k  previous-line
 bind index              l  display-message
+bind index         <Esc>L  limit
 bind attach             l  view-attach
 
 bind attach,browser,pager,index \CF next-page

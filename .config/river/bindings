@@ -1,13 +1,14 @@
 #!/bin/sh
 
 mod=Super
+term=footclient
 
 alias map='riverctl map'
 
 map normal $mod Z             zoom
 map normal $mod S             toggle-float
 map normal $mod F             toggle-fullscreen
-map normal $mod Return        spawn foot
+map normal $mod Return        spawn "$term"
 map normal $mod Q             close
 map normal $mod D             spawn 'wmenu-color wmenu-run'
 map normal $mod Semicolon     spawn 'menu-clip'
