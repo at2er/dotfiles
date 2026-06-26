@@ -105,7 +105,11 @@
 !.zprofile
 !.zshrc
 !configure
+!etc
+!etc/**
 !scripts
 !scripts/**
 !setup
+!usr
+!usr/**
 !LICENSE*

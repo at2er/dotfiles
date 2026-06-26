@@ -1,0 +1,7 @@
+#!/bin/sh
+
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=wlroots
+
+# Start services by the fucking systemd
+systemctl --user start wayland-session.target
