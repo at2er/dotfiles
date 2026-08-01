@@ -36,13 +36,9 @@ trysource /usr/share/git/completion/git-prompt.sh
 #trysource $SYS_PLUGINS_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh
 #trysource $SYS_PLUGINS_DIR_LOCAL/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
 
-if command -v fzf &>/dev/null; then
-	source <(fzf --zsh)
-fi
+#trysource "$SHELL_CONFIG/fzf.sh"
 
-trysource "$SHELL_CONFIG/fzf.sh"
-
-[ ! -z $(command -v fzf) ] && eval "$(fzf --zsh)"
+#[ ! -z $(command -v fzf) ] && eval "$(fzf --zsh)"
 [ ! -z $(command -v tmuxifier) ] && eval "$(tmuxifier init -)"
 [ ! -z $(command -v zoxide) ] && eval "$(zoxide init zsh)"
 
@@ -57,7 +53,7 @@ zle -N down-line-or-beginning-search
 zle -N edit-command-line
 
 KEYTIMEOUT=1
-bindkey -v
+# bindkey -v
 bindkey "^[[H" beginning-of-line
 bindkey "^[[4~" end-of-line
 bindkey "^[[P" delete-char

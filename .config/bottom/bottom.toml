@@ -1,5 +1,9 @@
 [flags]
-process_memory_as_value = true
-tree = true
 enable_gpu_memory = true
-enable_cache_memory = true
+
+[processes]
+tree = true
+memory_value = true
+
+[memory_graph]
+cache_memory = true
