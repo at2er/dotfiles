@@ -21,7 +21,7 @@ export W3M_DIR="$XDG_DATA_HOME/w3m"
 export XINITRC="$XDG_CONFIG_HOME/xorg/xinitrc"
 export XAUTHORITY="$XDG_CONFIG_HOME/xorg/Xauthority"
 
-export BROWSER="firefox"
+export BROWSER="helium-browser"
 export EDITOR="meo"
 export PAGER="less"
 #export MANPAGER="less"
@@ -53,9 +53,14 @@ export TMUXIFIER_LAYOUT_PATH="$HOME/.config/tmux/plugins/tmuxifier/layouts"
 #export LESS_TERMCAP_ue=$'\E[0m'
 #export LESS_TERMCAP_us=$'\E[1;32m'
 
+export XMODIFIERS=@im=fcitx
+#export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
 export MANWIDTH=80
 
 [ -f "$XDG_CONFIG_HOME/user-dirs.dirs" ] && source $XDG_CONFIG_HOME/user-dirs.dirs
 
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 export THEOS=~/projects/theos
+
+export STM32CubeMX_PATH=/home/lili/STM32CubeMX
