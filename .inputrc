@@ -1,13 +1,6 @@
-set colored-stats on
-set visible-stats on
-set mark-symlinked-directories on
 set colored-completion-prefix on
+set colored-stats on
+set enable-meta-key off
+set mark-symlinked-directories on
 set menu-complete-display-prefix on
-
-#$include /etc/inputrc
-#
-#set editing-mode vi
-#
-#set show-mode-in-prompt on
-#"^p": history-search-backward
-#"^n": history-search-forward
+set visible-stats on

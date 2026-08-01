@@ -5,3 +5,6 @@ dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 # Start services by the fucking systemd
 systemctl --user start wayland-session.target
+
+fcitx5 -d &
+sfcp &
