@@ -2,8 +2,8 @@
 enable_gpu_memory = true
 
 [processes]
-tree = true
-memory_value = true
+default_tree = true
+default_memory_value = true
 
 [memory_graph]
 cache_memory = true
