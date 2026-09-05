@@ -15,8 +15,11 @@
 !.config/fontconfig
 !.config/fontconfig/fonts.conf
 !.config/foot
+!.config/foot/color-solarized-dark.ini
+!.config/foot/color-solarized-light.ini
 !.config/foot/colors2.ini
 !.config/foot/foot.ini
+!.config/foot/LICENSE.solarized
 !.config/hypr
 !.config/hypr/bindings.conf
 !.config/hypr/hyprland.conf
