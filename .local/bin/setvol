@@ -6,15 +6,17 @@ SHIFT=5
 
 usage() {
 	cat << EOF
-usage: volume [-hudlgm] [VOLUME]
-  -h: usage
-  -u: up
+usage: volume [-dhmu] [VOLUME]
   -d: down
+  -h: usage
+  -m: toggle mute
+  -u: up
 EOF
 }
 
 case "$1" in
-	"-h") usage ;;
-	"-u") wpctl set-volume @DEFAULT_SINK@ ${SHIFT}%+ ;;
 	"-d") wpctl set-volume @DEFAULT_SINK@ ${SHIFT}%- ;;
+	"-h") usage ;;
+	"-m") wpctl set-mute @DEFAULT_SINK@ toggle ;;
+	"-u") wpctl set-volume @DEFAULT_SINK@ ${SHIFT}%+ ;;
 esac
